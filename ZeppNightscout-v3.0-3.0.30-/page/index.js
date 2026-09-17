@@ -11,7 +11,7 @@ import { localStorage } from '../shared/storage';
 import * as alarm from '@zos/alarm';
 import { loadSettings, saveSettings, getBGColor, getBGStatus } from '../shared/settings';
 import { getLayout, isDeviceSupported } from '../shared/layout';
-import { getSnoozeUntil, processBackgroundReading } from '../shared/background-alert';
+import { getSnoozeUntil, setAlertSnooze, processBackgroundReading } from '../shared/background-alert';
 import { getConnectionStatus } from '../shared/connection-status';
 
 // SERVICE VALIDATION: Runtime permission check required by Zepp OS 3.0+
@@ -202,6 +202,13 @@ Page({
             if (parts[0] === 'sgv') sgvVal = decodeURIComponent(parts[1] || '');
             if (parts[0] === 'level') levelVal = decodeURIComponent(parts[1] || '');
             if (parts[0] === 'alarm_wake') alarmWake = (parts[1] === 'true');
+            if (parts[0] === 'minutes') {
+              const m = Number(parts[1]);
+              if (m === 15 || m === 30 || m === 60) {
+                setAlertSnooze(m);
+                showToast({ content: 'Snooze: ' + m + ' min' });
+              }
+            }
           }
           if (alertVal || alarmWake) {
             console.log(`[PAGE] Opened via ${alarmWake ? 'ALARM' : 'NOTIFICATION'}. SGV=${sgvVal}, Level=${levelVal || alertVal}`);

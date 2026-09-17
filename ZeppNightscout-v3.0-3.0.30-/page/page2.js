@@ -78,11 +78,32 @@ Page({
     snoozeSyncTimer: null,
     lastSnoozeUntil: 0
   },
+  handleNotificationAction(params) {
+    try {
+      let raw = '';
+      if (typeof params === 'string') raw = params;
+      else if (params && typeof params === 'object') raw = params.param ? String(params.param) : JSON.stringify(params);
+      const match = /(?:action=snooze|"action":"snooze").*?(?:minutes=(\d+)|"minutes":(\d+))/.exec(raw) ||
+                    /(?:minutes=(\d+)|"minutes":(\d+)).*?(?:action=snooze|"action":"snooze")/.exec(raw);
+      if (match) {
+        const mins = Number(match[1] || match[2]);
+        if (mins === 15 || mins === 30 || mins === 60) {
+          setAlertSnooze(mins);
+          showToast({ content: 'Snooze: ' + mins + ' min' });
+          return true;
+        }
+      }
+    } catch (e) {
+      console.log('Error handling snooze param:', e);
+    }
+    return false;
+  },
 
   onInit(params) {
-    if (String(params || '').indexOf('tab=server') !== -1) this.state.currentTab = 2;
-    setDebugContext('settings');
-    trace('LIFECYCLE_INIT');
+    const raw = typeof params === 'string' ? params : (params && params.param ? String(params.param) : JSON.stringify(params || ''));
+    if (raw.indexOf('tab=server') !== -1) this.state.currentTab = 2;
+    if (raw.indexOf('tab=alerts') !== -1 || raw.indexOf('action=snooze') !== -1) this.state.currentTab = 1;
+    this.handleNotificationAction(params);
     setDebugContext('settings');
     trace('LIFECYCLE_INIT');
     console.log('[ZIGHTSCOUT][SETTINGS] OPEN screen=page2');

@@ -14,10 +14,10 @@ export function testAlertNotification(level, vibratorInstance) {
       content: 'Teste de vibracao e notificacao.',
       vibrate: level === 'critical' ? 5 : 4,
       actions: [
-        { text: '15 min', file: 'app-service/index', param: 'action=snooze&minutes=15' },
-        { text: '30 min', file: 'app-service/index', param: 'action=snooze&minutes=30' },
-        { text: '60 min', file: 'app-service/index', param: 'action=snooze&minutes=60' },
-        { text: 'Abrir', file: 'pages/index', param: 'alert=' + level }
+        { text: '15 min', file: 'page/page2', param: 'action=snooze&minutes=15&tab=alerts' },
+        { text: '30 min', file: 'page/page2', param: 'action=snooze&minutes=30&tab=alerts' },
+        { text: '60 min', file: 'page/page2', param: 'action=snooze&minutes=60&tab=alerts' },
+        { text: 'Abrir', file: 'page/index', param: 'alert=' + level }
       ]
     };
     const id = notify(options);

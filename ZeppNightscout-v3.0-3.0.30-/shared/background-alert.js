@@ -89,10 +89,10 @@ export function processBackgroundReading(data) {
       const options = { title: level === 'critical' ? 'Glicemia Critica' : 'Glicemia Fora do Alvo',
         content: value + ' mg/dL' + detail + ' - ' + getBGStatus(value, s), vibrate: level === 'critical' ? 5 : 4,
         actions: [
-          { text: '15 min', file: 'app-service/index', param: 'action=snooze&minutes=15' },
-          { text: '30 min', file: 'app-service/index', param: 'action=snooze&minutes=30' },
-          { text: '60 min', file: 'app-service/index', param: 'action=snooze&minutes=60' },
-          { text: 'Abrir', file: 'pages/index', param: 'alert=' + level + '&sgv=' + value }
+          { text: '15 min', file: 'page/page2', param: 'action=snooze&minutes=15&tab=alerts' },
+          { text: '30 min', file: 'page/page2', param: 'action=snooze&minutes=30&tab=alerts' },
+          { text: '60 min', file: 'page/page2', param: 'action=snooze&minutes=60&tab=alerts' },
+          { text: 'Abrir', file: 'page/index', param: 'alert=' + level + '&sgv=' + value }
         ] };
       id = notify(options);
       if (typeof id === 'number' && id > 0 && level === 'critical') scheduleAlertRepeats(options, key, false);

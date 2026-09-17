@@ -94,11 +94,15 @@ AppService({
   },
 
   handleNotificationAction(params) {
-    const raw = typeof params === 'string' ? params : (params && params.param ? String(params.param) : '');
-    const match = /(?:^|[?&])action=snooze(?:&|$)/.test(raw) && raw.match(/(?:^|[?&])minutes=(15|30|60)(?:&|$)/);
+    let raw = '';
+    if (typeof params === 'string') raw = params;
+    else if (params && typeof params === 'object') raw = params.param ? String(params.param) : JSON.stringify(params);
+    const match = /(?:action=snooze|"action":"snooze").*?(?:minutes=(\d+)|"minutes":(\d+))/.exec(raw) ||
+                  /(?:minutes=(\d+)|"minutes":(\d+)).*?(?:action=snooze|"action":"snooze")/.exec(raw);
     if (!match) return false;
-    const until = setAlertSnooze(Number(match[1]));
-    if (until) backgroundLog('SNOOZE_ACTION', { minutes: Number(match[1]), until: until });
+    const mins = Number(match[1] || match[2]);
+    const until = setAlertSnooze(mins);
+    if (until) backgroundLog('SNOOZE_ACTION', { minutes: mins, until: until });
     return !!until;
   },
 
