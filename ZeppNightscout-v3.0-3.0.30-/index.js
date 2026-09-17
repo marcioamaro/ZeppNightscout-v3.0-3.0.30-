@@ -4,7 +4,7 @@ import { Vibrator, VIBRATOR_SCENE_NOTIFICATION, VIBRATOR_SCENE_STRONG_REMINDER }
 import { notify } from '@zos/notification';
 import { set as alarmSet, REPEAT_ONCE } from '@zos/alarm';
 import { localStorage } from '@zos/storage';
-import { loadSettings, getBGColor, getBGStatus } from '../shared/settings';
+import { loadSettings, getBGColor, getBGStatus } from './shared/settings';
 
 const APP_ID = 1127123;
 

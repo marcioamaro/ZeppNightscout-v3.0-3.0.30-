@@ -1,6 +1,6 @@
 import { localStorage } from './storage';
 import { notify } from '@zos/notification';
-import { Vibrator, VIBRATOR_SCENE_NOTIFICATION, VIBRATOR_SCENE_STRONG_REMINDER } from '@zos/sensor';
+import { triggerVibration } from './vibrator';
 import { loadSettings, getBGStatus } from './settings';
 import { scheduleAlertRepeats, cancelAlertRepeats } from './alert-repeat';
 export const SNOOZE_UNTIL_KEY = 'zightscout_alert_snooze_until';
@@ -79,18 +79,7 @@ export function processBackgroundReading(data) {
       return;
     }
     backgroundLog('ALERT_MATCH', { cycle: cycle, glucose: value, level: level });
-    try {
-      if (typeof Vibrator !== 'undefined') {
-        const vibrator = new Vibrator();
-        const mode = level === 'critical'
-          ? (typeof VIBRATOR_SCENE_STRONG_REMINDER !== 'undefined' ? VIBRATOR_SCENE_STRONG_REMINDER : 2)
-          : (typeof VIBRATOR_SCENE_NOTIFICATION !== 'undefined' ? VIBRATOR_SCENE_NOTIFICATION : 1);
-        vibrator.start({ mode: mode });
-        backgroundLog('ALERT_VIBRATED', { level: level, mode: mode });
-      }
-    } catch (ve) {
-      backgroundLog('VIBRATOR_ERROR', { error: String(ve) });
-    }
+    triggerVibration(level);
     const trend = data.trend || data.directionArrow || '';
     const delta = data.delta && data.delta !== '--' ? ' ' + data.delta : '';
     const detail = (trend ? ' ' + trend : '') + delta;

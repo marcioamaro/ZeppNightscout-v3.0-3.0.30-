@@ -4,6 +4,7 @@ import { syncBackground } from '../shared/page-ble';
 import { createWidget, widget, prop, align, event } from '@zos/ui';
 import { push } from '@zos/router';
 import { Vibrator, VIBRATOR_SCENE_NOTIFICATION, VIBRATOR_SCENE_STRONG_REMINDER } from '@zos/sensor';
+import { triggerVibration } from '../shared/vibrator';
 import { queryPermission, requestPermission } from '@zos/app';
 import { showToast } from '@zos/interaction';
 import { localStorage } from '../shared/storage';
@@ -1111,24 +1112,12 @@ Page({
 
     if (isRed && cfg.criticalVibration) {
       console.log('ZightScout: Critical RED alert triggered -> strong vibration');
-      if (this.state.vibrator) {
-        try {
-          this.state.vibrator.start({ mode: VIBRATOR_SCENE_STRONG_REMINDER });
-        } catch (e) {
-          console.log('Vibration error:', e);
-        }
-      }
+      triggerVibration('critical', this.state.vibrator);
       this.state.lastVibratedBG = data.currentBG;
       this.state.lastVibratedTime = now;
     } else if (isYellow && cfg.outOfRangeVibration) {
       console.log('ZightScout: Out of target YELLOW alert triggered -> notification vibration');
-      if (this.state.vibrator) {
-        try {
-          this.state.vibrator.start({ mode: VIBRATOR_SCENE_NOTIFICATION });
-        } catch (e) {
-          console.log('Vibration error:', e);
-        }
-      }
+      triggerVibration('warning', this.state.vibrator);
       this.state.lastVibratedBG = data.currentBG;
       this.state.lastVibratedTime = now;
     }

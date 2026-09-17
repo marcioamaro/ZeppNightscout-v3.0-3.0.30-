@@ -424,7 +424,7 @@ Page({
       text_size: fontSize,
       color: 0xFFAA00,
       click_func: () => {
-        if (!testAlertNotification('warning')) {
+        if (!testAlertNotification('warning', this.state.vibrator)) {
           showToast({ content: 'Falha ao enviar teste' });
         }
       }
@@ -488,7 +488,7 @@ Page({
       text_size: fontSize,
       color: 0xFF3333,
       click_func: () => {
-        if (!testAlertNotification('critical')) {
+        if (!testAlertNotification('critical', this.state.vibrator)) {
           showToast({ content: 'Falha ao enviar teste' });
         }
       }

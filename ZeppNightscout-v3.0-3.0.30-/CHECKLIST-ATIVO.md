@@ -45,12 +45,11 @@ Reduzir o gráfico em aproximadamente 55–70 px para criar essa faixa sem ocult
 
 ### Tarefas pendentes
 
-- [ ] Configurar `ble.createConnect` no `onInit` de `app-service/index.js` e restaurar porta conhecida do storage.
-- [ ] Implementar acionamento de `Vibrator` em `shared/background-alert.js` para alerta vermelho (`STRONG_REMINDER`) e amarelo (`NOTIFICATION`).
-- [ ] Ajustar `shared/page-ble.js` para não sequestrar nem desconectar o BLE nativo quando `backgroundInterval > 0`.
-- [ ] Assegurar em `page/index.js` que leituras em primeiro plano também acionem `processBackgroundReading` como salvaguarda sem quebrar a tela.
-- [ ] Atualizar mock de `@zos/sensor` em `tests/test-background.cjs` e adicionar cobertura para os alertas amarelo/vermelho em ambos os cenários (tela ligada/segundo plano).
-- [ ] Executar bateria completa de testes automatizados (`npm test`, `npm run test:syntax`, `npm run test:background`, `npm run test:build`).
+- [x] Configurar `ble.createConnect` no `onInit` e `runCycle` de `app-service/index.js` e restaurar porta conhecida do storage.
+- [x] Implementar acionamento de `Vibrator` em `shared/background-alert.js` para alerta vermelho (`STRONG_REMINDER`) e amarelo (`NOTIFICATION`).
+- [x] Ajustar `shared/page-ble.js` e `page/index.js` para que leituras em primeiro plano acionem `processBackgroundReading` como salvaguarda sem quebrar a tela.
+- [x] Atualizar mock de `@zos/sensor` em `tests/test-background.cjs` e adicionar cobertura para os alertas amarelo/vermelho em ambos os cenários (tela ligada/segundo plano).
+- [x] Executar bateria completa de testes automatizados (`npm test`, `npm run test:syntax`, `npm run test:background` [33 cenários], `npm run test:build`, `npm run test:yaml`).
 - [ ] Validar no Amazfit Active 2 físico via `zeus bridge`: notificação e vibração com tela desligada e tela ligada.
 
 ## Padrão obrigatório daqui em diante

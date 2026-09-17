@@ -337,6 +337,8 @@ test('manual red test repeats three times with monitoring OFF and leaves real st
   const repeat=h.load('shared/alert-repeat.js');
   repeat.handleAlertRepeat(nextRepeat(h)); repeat.handleAlertRepeat(nextRepeat(h));
   assert.equal(h.notices.length,3); assert.equal(h.players.length,0);
+  assert.equal(h.vibrations.length, 3);
+  assert.equal(h.notices[0].actions.length, 4);
   assert.equal(h.storage.get('zightscout_notified_reading'),'real');
   assert(h.notices.every(n=>n.title.startsWith('TESTE')));
 });

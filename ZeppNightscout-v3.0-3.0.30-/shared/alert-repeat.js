@@ -3,6 +3,7 @@ import { notify } from '@zos/notification';
 import { localStorage } from './storage';
 import { loadSettings } from './settings';
 import { backgroundLog } from './background-log';
+import { triggerVibration } from './vibrator';
 
 const REAL_KEY = 'zightscout_critical_repeat';
 const TEST_KEY = 'zightscout_test_repeat';
@@ -55,6 +56,7 @@ export function handleAlertRepeat(data) {
   if (blocked) { cancelAlertRepeats(state.test); return false; }
   localStorage.removeItem(key);
   try {
+    triggerVibration('critical');
     const notificationId = notify({ ...state.options, title: state.options.title + ' (' + state.step + '/3)' });
     backgroundLog('REPEAT_NOTIFY_RESULT', { step: state.step, test: state.test, notificationId: notificationId });
     if (typeof notificationId !== 'number' || notificationId <= 0) return false;

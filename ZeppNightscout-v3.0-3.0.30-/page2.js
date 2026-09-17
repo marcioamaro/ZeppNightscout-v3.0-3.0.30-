@@ -3,8 +3,8 @@ import { createWidget, deleteWidget, widget, prop, align, createKeyboard, delete
 import { back } from '@zos/router';
 import { Vibrator, VIBRATOR_SCENE_NOTIFICATION, VIBRATOR_SCENE_STRONG_REMINDER } from '@zos/sensor';
 import { start, stop } from '@zos/app-service';
-import { loadSettings, saveSettings, resolveUrlInput, DEFAULT_PRESET_URL } from '../shared/settings';
-import { getLayout } from '../shared/layout';
+import { loadSettings, saveSettings, resolveUrlInput, DEFAULT_PRESET_URL } from './shared/settings';
+import { getLayout } from './shared/layout';
 
 const APP_ID = 1127123;
 const layout = getLayout();
