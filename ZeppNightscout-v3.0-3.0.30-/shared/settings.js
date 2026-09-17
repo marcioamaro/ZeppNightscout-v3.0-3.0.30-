@@ -11,7 +11,7 @@ export const DEFAULT_SETTINGS = {
   low: 85,
   high: 120,
   veryHigh: 185,
-  outOfRangeVibration: false,
+  outOfRangeVibration: true,
   criticalVibration: true,
   notificationSound: false,
   backgroundInterval: 5,

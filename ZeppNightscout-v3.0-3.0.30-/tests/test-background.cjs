@@ -161,6 +161,7 @@ test('missing URL uses bounded retry instead of an alarm every second', () => {
 });
 test('warning notifications respect toggle, thresholds, deduplication and fresh readings', () => {
   const h=harness(), s=h.boot();
+  h.config.outOfRangeVibration=false; h.save();
   s.processBackgroundReading({currentBG:'130',readingTimestamp:h.now()+1}); assert.equal(h.notices.length,0);
   h.config.outOfRangeVibration=true; h.save();
   s.processBackgroundReading({currentBG:'130',readingTimestamp:h.now()+1}); assert.equal(h.notices.length,1);
@@ -320,7 +321,7 @@ test('snooze, OFF, disabled critical alerts, and recovery prevent queued red rep
     if(reason==='disabled') { h.config.criticalVibration=false; h.save(); }
     if(reason==='normal') alerts.processBackgroundReading({currentBG:100,readingTimestamp:h.now()+2});
     if(reason==='warning') alerts.processBackgroundReading({currentBG:80,readingTimestamp:h.now()+2});
-    assert(!repeat.handleAlertRepeat(pending),reason); assert.equal(h.notices.length,1,reason);
+    assert(!repeat.handleAlertRepeat(pending),reason); assert.equal(h.notices.length, reason === 'warning' ? 2 : 1, reason);
   }
 });
 test('new critical reading replaces old repeats and expired repeats are dropped', () => {
