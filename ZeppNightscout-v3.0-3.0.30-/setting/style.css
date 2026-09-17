@@ -1,0 +1,247 @@
+/* ZightScout Companion Settings Style - Sem Animações */
+:root {
+  --bg-color: #0E131F;
+  --card-bg: #1A2234;
+  --input-bg: #121826;
+  --border-color: #2D3A54;
+  --text-primary: #F0F4FC;
+  --text-secondary: #94A3B8;
+  --accent-blue: #3388FF;
+  --accent-hover: #2266DD;
+  --success-green: #00CC66;
+  --success-bg: rgba(0, 204, 102, 0.12);
+  --error-red: #FF4444;
+  --error-bg: rgba(255, 68, 68, 0.12);
+  --warning-amber: #F59E0B;
+  --warning-bg: rgba(245, 158, 11, 0.12);
+  --warning-border: rgba(245, 158, 11, 0.35);
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  padding: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.brand .icon {
+  font-size: 28px;
+}
+
+.brand h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Alerta de Permissão em 2º Plano */
+.alert-box {
+  background-color: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.alert-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--warning-amber);
+  margin-bottom: 6px;
+}
+
+.alert-text {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.alert-steps-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--warning-amber);
+  margin-bottom: 6px;
+}
+
+.alert-steps {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.alert-steps strong {
+  color: var(--text-primary);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: monospace, var(--font-family);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--accent-blue);
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--accent-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:active {
+  background-color: var(--accent-hover);
+}
+
+/* Status Box */
+.status-box {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 10px;
+}
+
+.status-box:empty {
+  display: none;
+}
+
+.success {
+  display: block;
+  padding: 12px 14px;
+  background-color: var(--success-bg);
+  border: 1px solid var(--success-green);
+  color: var(--success-green);
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.error {
+  display: block;
+  padding: 12px 14px;
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-red);
+  color: var(--error-red);
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.info-card {
+  background-color: rgba(26, 34, 52, 0.6);
+  border: 1px solid rgba(45, 58, 84, 0.6);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.info-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--accent-blue);
+}
+
+.info-card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.info-card li {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 14px;
+}
+
+.info-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+}

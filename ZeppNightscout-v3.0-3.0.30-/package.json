@@ -1,0 +1,32 @@
+{
+  "name": "zightscout",
+  "version": "1.0.0",
+  "description": "ZightScout - Monitor de glicose CGM para Zepp OS via Nightscout",
+  "scripts": {
+    "dev": "echo 'Run: zeus dev (requires @zeppos/zeus-cli)'",
+    "build": "node scripts/increment-version.js && zeus build",
+    "build:prod": "node scripts/increment-version.js && zeus build --production",
+    "preview": "node scripts/increment-version.js && zeus preview",
+    "install:device": "node scripts/increment-version.js && zeus install",
+    "test": "node tests/test-parser.js && node tests/test-url-token-validation.js && node tests/test-checkbox.js && node tests/test-token-flow.js",
+    "test:syntax": "node --check page/index.js && node --check app-side/index.js && node --check shared/message.js",
+    "test:yaml": "node tests/test-yaml.js",
+    "test:build": "node tests/test-build.js",
+    "simulator": "node scripts/start-simulator.js",
+    "start": "node scripts/start-simulator.js",
+    "lint": "echo 'Linting not configured yet'",
+    "help": "node scripts/help.js",
+    "test:background": "node tests/test-background.cjs"
+  },
+  "keywords": [
+    "zeppos",
+    "nightscout",
+    "cgm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "js-yaml": "^4.1.1",
+    "yaml-lint": "^1.7.0"
+  }
+}

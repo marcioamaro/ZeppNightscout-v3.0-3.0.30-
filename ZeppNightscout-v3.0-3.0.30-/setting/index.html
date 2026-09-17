@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZightScout - Configuração Nightscout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <span class="icon">🩸</span>
+        <h1>ZightScout</h1>
+      </div>
+      <p class="subtitle">Monitor de Glicose Contínua (CGM)</p>
+    </div>
+
+    <!-- Alerta de Permissão em Segundo Plano no Relógio -->
+    <div class="alert-box">
+      <div class="alert-title">⚠️ Permissão Importante no Relógio</div>
+      <p class="alert-text">
+        Para emitir notificações e vibrar com o aplicativo fechado (em segundo plano), o ZightScout precisa ter permissão concedida no próprio relógio.
+      </p>
+      <div class="alert-steps-title">Onde permitir nas configurações do seu relógio:</div>
+      <ol class="alert-steps">
+        <li>No relógio, abra <strong>Configurações</strong></li>
+        <li>Vá em <strong>Aplicativos</strong> (ou Gerenciador de Apps)</li>
+        <li>Localize e toque em <strong>ZightScout</strong></li>
+        <li>Marque como PERMITIDO: <strong>"Executar em 2º Plano"</strong> (ou "Início Automático")</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Configuração no relógio</h2>
+      <p class="card-desc">Thresholds, alertas e segundo plano são configurados em Ajustes ZightScout no relógio.</p>
+      <div id="status-area" class="status-box">Servidor fixo: henriquecgm.azurewebsites.net</div>
+    </div>
+
+    <div class="info-card">
+      <h3>ℹ️ Informações de Uso</h3>
+      <ul>
+        <li>O relógio exibirá as leituras de glicose diretamente deste servidor.</li>
+        <li>A URL é transferida via Bluetooth para o relógio conectado.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

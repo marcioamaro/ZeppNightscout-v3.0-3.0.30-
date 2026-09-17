@@ -1,0 +1,28 @@
+---
+# YAMLLint configuration for syntax-only validation
+# This configuration disables all style rules and only checks for syntax errors
+
+extends: default
+
+rules:
+  # Disable all style rules - we only care about syntax
+  trailing-spaces: disable
+  line-length: disable
+  indentation: disable
+  comments-indentation: disable
+  comments: disable
+  document-start: disable
+  document-end: disable
+  empty-lines: disable
+  empty-values: disable
+  key-duplicates: enable  # Keep this - it's a real error
+  new-line-at-end-of-file: disable
+  new-lines: disable
+  octal-values: disable
+  quoted-strings: disable
+  truthy: disable
+  braces: disable
+  brackets: disable
+  colons: disable
+  commas: disable
+  hyphens: disable

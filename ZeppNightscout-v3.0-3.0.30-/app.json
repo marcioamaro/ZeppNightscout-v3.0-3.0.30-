@@ -1,0 +1,171 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 1127422,
+    "appName": "ZightScout3+",
+    "name": "ZightScout3+",
+    "appType": "app",
+    "version": {
+      "code": 82,
+      "name": "3.0.47"
+    },
+    "icon": "icon.png",
+    "vender": "ZightScout3+",
+    "description": "Monitor de glicose CGM via Nightscout (Universal Zepp OS 3.0+)"
+  },
+  "permissions": [
+    "internet",
+    "data:user.info",
+    "device:os.local_storage",
+    "device:os.bg_service",
+    "device:os.notification",
+    "device:os.alarm"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "3.0.0",
+      "target": "3.0.0",
+      "minVersion": "3.0.0"
+    }
+  },
+  "targets": {
+    "universal": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/index",
+            "page/page2",
+            "pages/index"
+          ]
+        },
+        "app-side": {
+          "path": "app-side/index"
+        },
+        "app-service": {
+          "services": [
+            "app-service/index",
+            "app-service/alert-service"
+          ]
+        }
+      },
+      "platforms": [
+        {
+          "name": "active-2-round",
+          "deviceSource": 8913153
+        },
+        {
+          "name": "active-2-round-cn",
+          "deviceSource": 8913152
+        },
+        {
+          "name": "active-2-round-w",
+          "deviceSource": 8913155
+        },
+        {
+          "name": "active-2-round-2",
+          "deviceSource": 8913159
+        },
+        {
+          "name": "active-2-round-v2",
+          "deviceSource": 10092801
+        },
+        {
+          "name": "active-2-round-v2-cn",
+          "deviceSource": 10092800
+        },
+        {
+          "name": "active-2-round-v2-w",
+          "deviceSource": 10092803
+        },
+        {
+          "name": "active-2-round-v2-w2",
+          "deviceSource": 10092807
+        },
+        {
+          "name": "active-2-round-v3",
+          "deviceSource": 10617091
+        },
+        {
+          "name": "active-2-square",
+          "deviceSource": 10223872
+        },
+        {
+          "name": "active-2-square-cn",
+          "deviceSource": 10223873
+        },
+        {
+          "name": "active-2-square-w",
+          "deviceSource": 10223875
+        },
+        {
+          "name": "balance-2",
+          "deviceSource": 9568512
+        },
+        {
+          "name": "balance-2-w",
+          "deviceSource": 9568513
+        },
+        {
+          "name": "balance-2-w2",
+          "deviceSource": 9568515
+        },
+        {
+          "name": "bip-6",
+          "deviceSource": 9765120
+        },
+        {
+          "name": "bip-6-w",
+          "deviceSource": 9765121
+        },
+        {
+          "name": "t-rex-3-pro-48",
+          "deviceSource": 10551552
+        },
+        {
+          "name": "t-rex-3-pro-44",
+          "deviceSource": 10682624
+        },
+        {
+          "name": "cheetah-2-pro",
+          "deviceSource": 11010304
+        }
+      ],
+      "designWidth": 466
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    },
+    "en": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    },
+    "pt-BR": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    },
+    "pt": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    },
+    "pt-PT": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    },
+    "es-ES": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    },
+    "es": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    },
+    "zh-CN": {
+      "appName": "ZightScout3+",
+      "name": "ZightScout3+"
+    }
+  },
+  "defaultLanguage": "en-US"
+}
